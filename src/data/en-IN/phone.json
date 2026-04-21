@@ -1,0 +1,12 @@
+{
+  "mobilePrefixes": ["6", "7", "8", "9"],
+  "landlineCodes": [
+    { "city": "Mumbai", "code": "022" },
+    { "city": "Delhi", "code": "011" },
+    { "city": "Bengaluru", "code": "080" },
+    { "city": "Hyderabad", "code": "040" },
+    { "city": "Chennai", "code": "044" },
+    { "city": "Pune", "code": "020" },
+    { "city": "Kolkata", "code": "033" }
+  ]
+}

@@ -1,0 +1,11 @@
+node_modules/
+dist/
+test-install/
+*.tgz
+*.log
+.env
+coverage/
+*.sql
+*.csv
+seeds.json
+mock_data.json

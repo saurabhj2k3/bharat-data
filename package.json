@@ -1,0 +1,46 @@
+{
+  "name": "bharat-data",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Deterministic data generation for Indian context (Names, Addresses, Identities, etc.)",
+  "keywords": [
+    "india",
+    "fake-data",
+    "generator",
+    "bharat",
+    "deterministic"
+  ],
+  "author": "Bharat-Data Contributors",
+  "license": "MIT",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "bin": {
+    "bharat-data": "./bin/cli.js"
+  },
+  "files": [
+    "dist",
+    "bin"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsc",
+    "test": "vitest",
+    "prepublishOnly": "npm run build"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "typescript": "^5.3.3",
+    "vitest": "^4.1.0"
+  },
+  "dependencies": {
+    "@inquirer/prompts": "^8.4.2",
+    "chalk": "^5.6.2",
+    "cli-progress": "^3.12.0"
+  }
+}

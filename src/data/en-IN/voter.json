@@ -1,0 +1,11 @@
+{
+  "statePrefixes": [
+    { "state": "Uttar Pradesh", "prefixes": ["UPW", "UPG", "UPL", "UDA"] },
+    { "state": "Maharashtra", "prefixes": ["MTD", "MTX", "MTY", "MTE"] },
+    { "state": "Delhi", "prefixes": ["DLX", "DLY", "DLZ", "DLC"] },
+    { "state": "Karnataka", "prefixes": ["KRR", "KRX", "KRY", "KRG"] },
+    { "state": "Tamil Nadu", "prefixes": ["TNX", "TNY", "TNZ", "TNE"] },
+    { "state": "Gujarat", "prefixes": ["GJX", "GJY", "GJZ", "GJE"] },
+    { "state": "West Bengal", "prefixes": ["WBX", "WBY", "WBZ", "WBE"] }
+  ]
+}

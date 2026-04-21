@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    /* Base Options */
+    "target": "ESNext",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "lib": ["ESNext"],
+    
+    /* JSON Module Support */
+    "resolveJsonModule": true,      // Allows importing .json files
+    "allowArbitraryExtensions": true,
+    "allowImportingTsExtensions": false, // Required for 'with { type: "json" }'
+    
+    /* Directory Settings */
+    "outDir": "./dist",
+    "rootDir": "./src",
+    
+    /* Strictness & Reliability */
+    "strict": true,
+    "noImplicitAny": true,
+    "declaration": true,            // Generates .d.ts files for your package
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist"]
+}

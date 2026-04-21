@@ -1,0 +1,31 @@
+{
+  "cities": [
+    { "name": "Visakhapatnam", "stateCode": "AP" }, { "name": "Vijayawada", "stateCode": "AP" }, { "name": "Guntur", "stateCode": "AP" },
+    { "name": "Itanagar", "stateCode": "AR" }, { "name": "Tawang", "stateCode": "AR" },
+    { "name": "Guwahati", "stateCode": "AS" }, { "name": "Dibrugarh", "stateCode": "AS" }, { "name": "Silchar", "stateCode": "AS" },
+    { "name": "Patna", "stateCode": "BR" }, { "name": "Gaya", "stateCode": "BR" }, { "name": "Muzaffarpur", "stateCode": "BR" },
+    { "name": "Raipur", "stateCode": "CG" }, { "name": "Bhilai", "stateCode": "CG" }, { "name": "Bilaspur", "stateCode": "CG" },
+    { "name": "Panaji", "stateCode": "GA" }, { "name": "Margao", "stateCode": "GA" }, { "name": "Vasco da Gama", "stateCode": "GA" },
+    { "name": "Ahmedabad", "stateCode": "GJ" }, { "name": "Surat", "stateCode": "GJ" }, { "name": "Vadodara", "stateCode": "GJ" }, { "name": "Rajkot", "stateCode": "GJ" },
+    { "name": "Gurugram", "stateCode": "HR" }, { "name": "Faridabad", "stateCode": "HR" }, { "name": "Panipat", "stateCode": "HR" },
+    { "name": "Shimla", "stateCode": "HP" }, { "name": "Manali", "stateCode": "HP" }, { "name": "Dharamshala", "stateCode": "HP" },
+    { "name": "Ranchi", "stateCode": "JH" }, { "name": "Jamshedpur", "stateCode": "JH" }, { "name": "Dhanbad", "stateCode": "JH" },
+    { "name": "Bengaluru", "stateCode": "KA" }, { "name": "Mysuru", "stateCode": "KA" }, { "name": "Hubballi", "stateCode": "KA" }, { "name": "Mangaluru", "stateCode": "KA" },
+    { "name": "Thiruvananthapuram", "stateCode": "KL" }, { "name": "Kochi", "stateCode": "KL" }, { "name": "Kozhikode", "stateCode": "KL" },
+    { "name": "Bhopal", "stateCode": "MP" }, { "name": "Indore", "stateCode": "MP" }, { "name": "Gwalior", "stateCode": "MP" }, { "name": "Jabalpur", "stateCode": "MP" },
+    { "name": "Mumbai", "stateCode": "MH" }, { "name": "Pune", "stateCode": "MH" }, { "name": "Nagpur", "stateCode": "MH" }, { "name": "Nashik", "stateCode": "MH" }, { "name": "Aurangabad", "stateCode": "MH" },
+    { "name": "Imphal", "stateCode": "MN" }, { "name": "Shillong", "stateCode": "ML" }, { "name": "Aizawl", "stateCode": "MZ" }, { "name": "Kohima", "stateCode": "NL" },
+    { "name": "Bhubaneswar", "stateCode": "OR" }, { "name": "Cuttack", "stateCode": "OR" }, { "name": "Rourkela", "stateCode": "OR" },
+    { "name": "Ludhiana", "stateCode": "PB" }, { "name": "Amritsar", "stateCode": "PB" }, { "name": "Jalandhar", "stateCode": "PB" },
+    { "name": "Jaipur", "stateCode": "RJ" }, { "name": "Jodhpur", "stateCode": "RJ" }, { "name": "Udaipur", "stateCode": "RJ" }, { "name": "Kota", "stateCode": "RJ" },
+    { "name": "Gangtok", "stateCode": "SK" },
+    { "name": "Chennai", "stateCode": "TN" }, { "name": "Coimbatore", "stateCode": "TN" }, { "name": "Madurai", "stateCode": "TN" }, { "name": "Salem", "stateCode": "TN" },
+    { "name": "Hyderabad", "stateCode": "TG" }, { "name": "Warangal", "stateCode": "TG" }, { "name": "Nizamabad", "stateCode": "TG" },
+    { "name": "Agartala", "stateCode": "TR" },
+    { "name": "Lucknow", "stateCode": "UP" }, { "name": "Kanpur", "stateCode": "UP" }, { "name": "Ghaziabad", "stateCode": "UP" }, { "name": "Agra", "stateCode": "UP" }, { "name": "Varanasi", "stateCode": "UP" }, { "name": "Noida", "stateCode": "UP" },
+    { "name": "Dehradun", "stateCode": "UK" }, { "name": "Haridwar", "stateCode": "UK" }, { "name": "Haldwani", "stateCode": "UK" },
+    { "name": "Kolkata", "stateCode": "WB" }, { "name": "Howrah", "stateCode": "WB" }, { "name": "Durgapur", "stateCode": "WB" }, { "name": "Siliguri", "stateCode": "WB" },
+    { "name": "Port Blair", "stateCode": "AN" }, { "name": "Chandigarh", "stateCode": "CH" }, { "name": "Silvassa", "stateCode": "DH" }, { "name": "Daman", "stateCode": "DD" }, { "name": "Diu", "stateCode": "DD" },
+    { "name": "New Delhi", "stateCode": "DL" }, { "name": "Jammu", "stateCode": "JK" }, { "name": "Srinagar", "stateCode": "JK" }, { "name": "Leh", "stateCode": "LA" }, { "name": "Kavaratti", "stateCode": "LD" }, { "name": "Puducherry", "stateCode": "PY" }
+  ]
+}
