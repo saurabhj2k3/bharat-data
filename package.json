@@ -10,7 +10,7 @@
     "bharat",
     "deterministic"
   ],
-  "author": "Bharat-Data Contributors",
+  "author": "Saurabh Jadhav",
   "license": "MIT",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
