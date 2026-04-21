@@ -1,161 +1,111 @@
 # 🇮🇳 Bharat Data
 
-A lightweight, deterministic data generation library specifically for the Indian context. Generate realistic names, addresses, phone numbers, and identity documents (Aadhaar, PAN, Voter ID) with ease.
+[![npm version](https://img.shields.io/npm/v/bharat-data.svg)](https://www.npmjs.com/package/bharat-data)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-## ✨ Features
+A powerful, **deterministic**, and enterprise-grade data generation library specifically for the Indian context. Generate millions of realistic records including Names, Addresses, Identity Documents (Aadhaar, PAN, GSTIN), and more—formatted for CLI, Spreadsheet (CSV), or SQL.
 
-- **Deterministic**: Use a seed to generate the exact same data every time.
-- **Regional Accuracy**: Generate names and addresses for specific Indian regions (North, South, East, West).
-- **Multilingual**: Supports English (`en_IN`) and Hindi (`hi_IN`).
-- **Enterprise-Ready**: Generates valid formats for PAN, Aadhaar, GSTIN, TAN, and more.
-- **Zero Dependencies**: Lightweight and fast.
-- **Works Everywhere**: Compatible with Node.js and modern browsers.
+---
 
-## 🚀 Installation
+## ⚡ Quick Start: CLI (No Code Required)
 
+The easiest way to use **Bharat-Data** is directly from your terminal. No installation needed if you have Node.js.
+
+### 🧙‍♂️ 1. Open the Interactive Wizard
+Generate bulk data or single records step-by-step using our beautiful TUI:
+```bash
+npx bharat-data
+```
+*Follow the on-screen prompts to export data to JSON, CSV, or SQL.*
+
+### 🏃 2. Use 1-Word Aliases
+Quickly get data for common entities:
+```bash
+npx bharat-data user       # Single full profile
+npx bharat-data users 10   # 10 full profiles
+npx bharat-data pan        # Valid PAN Card
+npx bharat-data gstin      # Valid GST Number
+npx bharat-data address    # Valid Indian Address
+```
+
+### 💾 3. Exporting to Files (CSV / SQL / JSON)
+Perfect for populating databases or sharing spreadsheets:
+```bash
+# Generate 100 users to a CSV file (Excel-ready)
+npx bharat-data users 100 --out users.csv
+
+# Generate 500 users to a SQL insert file for a specific table
+npx bharat-data users 500 --out seeds.sql --table users_table
+
+# Select specific fields only
+npx bharat-data users 50 --fields name,pan,phone --out mini_leads.json
+```
+
+---
+
+## 🚀 Programmatic Usage (SDK)
+
+Install it in your project:
 ```bash
 npm install bharat-data
 ```
 
-## 📖 Usage
-
-### Basic Example
-
+### Basic Generation
 ```javascript
 import { bharat } from 'bharat-data';
 
-// Generate a random person profile
+// Generate a random individual profile
 const user = bharat.person.generate();
-console.log(user.name);    // e.g., "Arjun Sharma"
-console.log(user.phone);   // e.g., "+91 9876543210"
-console.log(user.pan);     // e.g., "ABC P D 1234 F"
+console.table(user); 
+
+// Generate bulk users
+const batch = bharat.person.bulk(100);
 ```
 
-### Seeding for Determinism
-
+### 🎯 Determinism (Seeding)
+Produce the exact same data every time by providing a seed. Perfect for testing and reproducibility.
 ```javascript
 import { bharat } from 'bharat-data';
 
-bharat.seed(12345);
-const profile1 = bharat.person.generate();
+// Set a global seed
+bharat.SeedEngine.setSeed(42);
 
-bharat.seed(12345);
-const profile2 = bharat.person.generate();
+const user1 = bharat.person.generate();
+bharat.SeedEngine.setSeed(42);
+const user2 = bharat.person.generate();
 
-// profile1 and profile2 will be identical!
+// user1 === user2
 ```
 
-### Regional & Localization
+### 🏛️ Regional & Contextual Accuracy
+Bharat-Data intelligently syncs data points. If a user is from "Maharashtra", their:
+- **Aadhaar** prefix matches the state code.
+- **RTO License** is MH-specific (e.g., MH-12-AX-1234).
+- **GSTIN** prefix matches the state code.
+- **Address** and Pincode are logically grouped.
 
 ```javascript
-// Generate a South Indian profile in Hindi
-bharat.setLocale('hi_IN');
-const user = bharat.person.generate('South');
-
-console.log(user.name);    // e.g., "वेंकटेश नायडू"
-console.log(user.address); // e.g., "फ्लैट नं. 42, मेन रोड, कर्नाटक, भारत - 560001"
+// Generate a profile specifically from South India
+const vishnu = bharat.person.generate('South');
 ```
 
-### Identity & Enterprise Documents
+---
 
-```javascript
-import { Identity } from 'bharat-data';
+## 🛠️ Available Modules
 
-console.log(Identity.aadhaar()); // 12-digit Aadhaar
-console.log(Identity.pan());     // PAN Card (with 'P' status for individuals)
-console.log(Identity.gstin());   // GST Number
-console.log(Identity.epf());     // EPF Number
-```
+| Module | Description | Key Methods |
+| :--- | :--- | :--- |
+| `person` | Full Profile Orchestrator | `generate()`, `bulk(n)` |
+| `identity` | Official Documents | `aadhaar()`, `pan()`, `passport()`, `voterId()` |
+| `business` | Corporate Data | `companyName()`, `gstin()`, `udyam()`, `corporatePan()` |
+| `address` | Context-Aware Address | `fullAddress()`, `state()`, `pincode()` |
+| `finance` | Banking & Payments | `upi()`, `accountNumber()`, `ifsc()`, `creditCard()` |
+| `transport` | Vehicle & Licensing | `vehicleNumber()`, `dlNumber()` |
+| `healthcare` | Medical ID | `abhaId()`, `bloodGroup()`, `hospital()` |
+| `education` | Academic Data | `university()`, `degree()`, `rollNumber()` |
 
-### 💰 Finance & Banking
-
-```javascript
-import { bharat } from 'bharat-data';
-
-console.log(bharat.finance.upi());           // e.g. "arjun.sharma@okaxis"
-console.log(bharat.finance.accountNumber()); // Deterministic account number
-console.log(bharat.finance.ifsc());          // Valid Indian Bank IFSC code
-console.log(bharat.finance.creditCard());    // Mock Visa/Mastercard
-```
-
-### 🏢 Corporate & Business
-
-```javascript
-console.log(bharat.business.companyName());  // e.g. "Vikas Logistics Pvt. Ltd."
-console.log(bharat.business.gstin());        // State-accurate Corporate GSTIN
-console.log(bharat.business.udyam());        // Udyam Registration (MSME)
-console.log(bharat.business.corporatePan()); // PAN with 'C' status
-```
-
-### 🍔 Food & ✈️ Airline
-
-```javascript
-console.log(bharat.food.snack());            // e.g. "Samosa" or "समोसा"
-console.log(bharat.airline.airline());       // e.g. "IndiGo"
-console.log(bharat.airline.flightNumber());  // e.g. "6E-456"
-```
-
-### 🎸 Culture & 🐯 Animals
-
-```javascript
-console.log(bharat.music.instrument());      // e.g. "Sitar"
-console.log(bharat.animal.nativeSpecies());  // e.g. "Bengal Tiger"
-```
-
-### 💻 Hacker & 💰 Commerce
-
-```javascript
-console.log(bharat.hacker.phrase());         // e.g. "Jugaad! We are Optimizing the AI Pipeline."
-console.log(bharat.commerce.price());        // e.g. "₹1,450"
-```
-
-### 🎓 Education & 🏥 Healthcare
-
-```javascript
-console.log(bharat.education.university());   // e.g. "Indian Institute of Technology, Mumbai"
-console.log(bharat.education.rollNumber());   // e.g. "24CS456"
-
-console.log(bharat.healthcare.abhaId());      // 14-digit ABHA ID (xx-xxxx-xxxx-xxxx)
-console.log(bharat.healthcare.bloodGroup());  // e.g. "O+"
-```
-
-### 🌐 Internet & Dates
-
-```javascript
-console.log(bharat.internet.email());        // e.g. "arjun_sharma@gmail.com"
-console.log(bharat.internet.password(12));   // Fake secure password
-
-const dob = bharat.dates.dob('pro');         // Date of Birth (25-60 age group)
-console.log(bharat.dates.format(dob));       // DD/MM/YYYY
-```
-
-### 🚗 Transport
-
-```javascript
-console.log(bharat.transport.vehicleNumber('MH')); // e.g. "MH-12-AX-1234"
-console.log(bharat.transport.dlNumber());         // Driving License format
-```
-
-## 🛠️ Modules
-
-- `names`: Region and gender-specific names with state-specific nuances.
-- `address`: National coverage (36 units) with capitals and pincode logic.
-- `food`: Localized Indian snacks, mains, and desserts.
-- `airline`: Indian airlines, airports, and flight numbers.
-- `music`: Traditional instruments and genres.
-- `animal`: Native Indian species.
-- `commerce`: Indian pricing (INR), categories, and GST.
-- `hacker`: Hinglish tech jargon.
-- `identity`: Aadhaar, PAN, GSTIN, TAN, EPF, ESIC, Voter ID, Passport.
-- `finance`: UPI, Bank Accounts, IFSC, Credit Cards.
-- `business`: Company Names, Udyam, Corporate PAN.
-- `education`: Universities, Degrees, Streams, Roll Numbers.
-- `healthcare`: ABHA ID, Blood Groups, Hospital Names.
-- `internet`: Emails, Usernames, Passwords, URLs.
-- `dates`: DOB generation with age filtering.
-- `transport`: RTO registration numbers, Driving Licenses.
-- `person`: All-in-one full user profile generator.
+---
 
 ## 📄 License
 
-MIT © Bharat-Data Contributors
+MIT © [Saurabh Jadhav](https://github.com/saurabhj2k3)
