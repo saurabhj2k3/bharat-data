@@ -1,6 +1,6 @@
 {
   "name": "bharat-data",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "type": "module",
   "description": "Deterministic data generation for Indian context (Names, Addresses, Identities, etc.)",
   "keywords": [
