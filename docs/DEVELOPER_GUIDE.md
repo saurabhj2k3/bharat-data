@@ -12,7 +12,31 @@ npm install
 npm run build # Compiles TS to dist/
 ```
 
-## 2. Running Tests
+## 2. Import & Usage
+You can import the library using standard ES Modules (ESM).
+
+### Javascript/TypeScript API
+```javascript
+import { bharat } from 'bharat-data';
+
+// Basic Usage
+const name = bharat.names.fullName();
+const pan = bharat.identity.pan();
+
+// Deterministic Seeding (Critical for Tests)
+bharat.seed(12345);
+console.log(bharat.names.fullName()); // Will always be the same result
+```
+
+### Tree Shaking
+The library supports tree-shaking. If you only need specific modules (e.g., in a frontend bundle), import them directly:
+```javascript
+import { Identity, Names } from 'bharat-data';
+
+const id = Identity.aadhaar();
+```
+
+## 3. Running Tests
 We use **Vitest** for our test suite.
 ```bash
 npm test          # Run all tests

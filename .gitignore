@@ -2,6 +2,7 @@
 node_modules/
 /dist
 /test-install/
+/integration-test/
 
 # Tests & Coverage
 /coverage
