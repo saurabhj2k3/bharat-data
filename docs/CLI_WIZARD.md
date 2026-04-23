@@ -44,6 +44,8 @@ When using the Wizard, certain keywords are "Context-Aware":
 | **Location** | `city`, `address`, `state`, `pincode`, `zip`, `country` |
 | **Business** | `company`, `job`, `gstin`, `balance`, `price`, `product` |
 | **Identity** | `aadhaar`, `pan`, `voterid` |
+| **Transport** | `license`, `vehicle` |
+| **Healthcare** | `hospital`, `bloodgroup` |
 | **Education** | `education`, `university`, `rollnumber` |
 | **System** | `id`, `date`, `password`, `description`, `boolean` |
 

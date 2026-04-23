@@ -82,7 +82,7 @@ if (isWizardPattern) {
         flight: () => bharat.airline.flightNumber(),
         // Transport
         vehicle: () => bharat.transport.vehicleNumber(),
-        license: () => bharat.transport.drivingLicense(),
+        license: () => bharat.transport.dlNumber("MH"),
         // Gadgets
         mobile: () => bharat.gadget.mobile(),
         laptop: () => "MacBook Pro M3",
@@ -235,7 +235,7 @@ async function runInteractive() {
   if (initialChoice === 'wizard') {
     isBulk = true;
     if (moduleChoice === 'person') {
-        const availableFields = ['name', 'gender', 'region', 'state', 'email', 'phone', 'address', 'pan', 'aadhaar', 'drivingLicense', 'vehicle', 'gstin'];
+        const availableFields = ['name', 'gender', 'state', 'email', 'phone', 'address', 'pan', 'aadhaar', 'license', 'vehicle', 'gstin'];
         selectedFields = await checkbox({
             message: 'Select fields to include in your export:',
             choices: availableFields.map(f => ({ name: f, value: f }))

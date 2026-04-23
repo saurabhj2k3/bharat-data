@@ -12,7 +12,7 @@ This is an exhaustive list of all 20 modules available in **Bharat-Data**.
 *   **Person**: Full realistic profiles including age, gender, and region.
 
 ### 6-10: Business & Commerce
-*   **Finance**: Amounts (INR), Transaction types, IFSC codes, Account numbers, VPA (UPI IDs).
+*   **Finance**: Amounts (INR), Transaction types, IFSC codes, Account numbers, UPI IDs.
 *   **Internet**: Smart Emails, Usernames, Avatars (prawatar.cc), IPv4, Passwords.
 *   **Dates**: Recent/Past/Future dates with deterministic formatting.
 *   **Transport**: Vehicle Registration (e.g., MH 01 AB 1234), DL numbers.
