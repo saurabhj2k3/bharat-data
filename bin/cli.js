@@ -101,15 +101,19 @@ if (isWizardPattern) {
         let currentName = null;
         let currentPan = null;
 
-        // Context Setup
-        const hasName = requestedFields.some(f => f.toLowerCase().replace(/\s/g, '') === 'name');
-        const hasEmail = requestedFields.some(f => f.toLowerCase().replace(/\s/g, '') === 'email');
-        const hasPan = requestedFields.some(f => f.toLowerCase().replace(/\s/g, '') === 'pan');
-        const hasGstin = requestedFields.some(f => f.toLowerCase().replace(/\s/g, '') === 'gstin');
+        // Context Setup - Check for any regional suffixes (:south, :north, etc)
+        const regionField = requestedFields.find(f => f.toLowerCase().includes(':'));
+        const globalRegion = regionField ? regionField.split(':')[1] : null;
+        const regionOption = globalRegion ? { region: globalRegion.charAt(0).toUpperCase() + globalRegion.slice(1) } : {};
 
-        // Priority 1: Name (for Email and PAN)
+        const hasName = requestedFields.some(f => f.toLowerCase().startsWith('name'));
+        const hasEmail = requestedFields.some(f => f.toLowerCase().startsWith('email'));
+        const hasPan = requestedFields.some(f => f.toLowerCase().startsWith('pan'));
+        const hasGstin = requestedFields.some(f => f.toLowerCase().startsWith('gstin'));
+
+        // Priority 1: Name (Use region if specified)
         if (hasName || hasEmail || hasPan) {
-            currentName = bharat.names.fullName();
+            currentName = bharat.person.generate(regionOption).name;
         }
 
         // Priority 2: PAN (for GSTIN)
@@ -118,7 +122,10 @@ if (isWizardPattern) {
         }
 
         requestedFields.forEach(f => {
-            const key = f.toLowerCase().replace(/\s/g, '');
+            const parts = f.toLowerCase().split(':');
+            const key = parts[0].replace(/\s/g, '');
+            const subKey = parts[1]; // e.g. 'south' from 'name:south'
+
             if (key === 'email') {
                 obj[f] = keywordMap.email(currentName);
             } else if (key === 'pan') {
@@ -139,6 +146,11 @@ if (isWizardPattern) {
     let dataString = '';
     if (mode === 'sql') {
         const keys = requestedFields;
+        // Add a safe CREATE TABLE statement at the start
+        dataString += `-- Bharat-Data: Auto-generated SQL Seed\n`;
+        dataString += `CREATE TABLE IF NOT EXISTS ${tableName} (\n`;
+        dataString += keys.map(k => `  ${k} TEXT`).join(',\n') + `\n);\n\n`;
+        
         dataString += `INSERT INTO ${tableName} (${keys.join(', ')}) VALUES\n`;
         const valueStrs = data.map(item => {
             const vals = keys.map(k => {
