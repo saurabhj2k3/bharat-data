@@ -3,6 +3,9 @@ node_modules/
 /dist
 /test-install/
 /integration-test/
+/dashboard/
+/bharatpay/
+/seeder/
 
 # Tests & Coverage
 /coverage
