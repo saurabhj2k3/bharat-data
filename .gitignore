@@ -1,11 +1,52 @@
+# Dependencies
 node_modules/
-dist/
-test-install/
+/dist
+/test-install/
+
+# Tests & Coverage
+/coverage
+.nyc_output
+*.lcov
+testlog.md
+scope.md
+
+# Build Artifacts
 *.tgz
-*.log
+package-lock.json.tmp
+
+# OS & IDE Files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Local Environment & Secrets
 .env
-coverage/
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.log
+
+# Generated Mock Data (Safety First)
+# This prevents accidentally pushing hundreds of MBs of mock data
 *.sql
 *.csv
+*.tsv
+!src/**/*.json
 seeds.json
 mock_data.json
+inventory.json
+products.json
+users.json
+customers.json
+samples.json
+*.json
+!package.json
+!tsconfig.json
+!package-lock.json

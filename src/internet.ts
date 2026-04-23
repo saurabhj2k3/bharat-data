@@ -39,4 +39,10 @@ export class Internet {
     }
     return retVal;
   }
+
+  /** Generates a deterministic avatar URL */
+  static avatar(): string {
+    const id = Math.floor(SeedEngine.next() * 1000);
+    return `https://i.pravatar.cc/150?u=${id}`;
+  }
 }

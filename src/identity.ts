@@ -52,11 +52,11 @@ export class Identity {
    * Generates a deterministic Indian GSTIN.
    * Format: State Code (2) + PAN (10) + Entity (1) + Z (1) + Check Digit (1).
    */
-  static gstin(stateCode: string = "27"): string {
-    const pan = this.pan().substring(0, 10);
+  static gstin(stateCode: string = "27", pan?: string): string {
+    const panToUse = pan ? pan.substring(0, 10) : this.pan().substring(0, 10);
     const entity = Math.floor(1 + SeedEngine.next() * 9);
     const check = SeedEngine.pick("ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".split(''));
-    return `${stateCode}${pan}${entity}Z${check}`;
+    return `${stateCode}${panToUse}${entity}Z${check}`;
   }
 
   /**

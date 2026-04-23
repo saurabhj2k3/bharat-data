@@ -32,6 +32,29 @@ export class Commerce {
   }
 }
 
+export class Utility {
+  /** Generates a deterministic UUID-v4 like string */
+  static id(): string {
+    const chars = 'abcdef0123456789';
+    let id = '';
+    for (let i = 0; i < 32; i++) {
+      if (i === 8 || i === 12 || i === 16 || i === 20) id += '-';
+      id += SeedEngine.pick(chars.split(''));
+    }
+    return id;
+  }
+
+  /** Generates a deterministic boolean */
+  static boolean(): boolean {
+    return SeedEngine.next() > 0.5;
+  }
+
+  /** Generates a deterministic age (18-80) */
+  static age(): number {
+    return Math.floor(18 + SeedEngine.next() * 62);
+  }
+}
+
 export class Hacker {
   private static adjectives = ["Cloud-native", "Distributed", "Scalable", "Resilient", "Serverless", "Agile"];
   private static nouns = ["Microservices", "Blockchain", "AI", "Kubernetes", "Data Lake", "Pipeline"];

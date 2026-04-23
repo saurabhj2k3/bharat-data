@@ -15,7 +15,7 @@ import { Healthcare } from './healthcare.js';
 import { Food } from './food.js';
 import { Airline } from './airline.js';
 import { Music, Animal } from './culture.js';
-import { Commerce, Hacker } from './utility.js';
+import { Commerce, Hacker, Utility } from './utility.js';
 import { Gadget } from './gadgets.js';
 
 export { 
@@ -37,6 +37,7 @@ export {
   Animal,
   Commerce,
   Hacker,
+  Utility,
   Gadget,
   SeedEngine, 
   LocaleEngine 
@@ -67,6 +68,7 @@ export const bharat = {
   animal: Animal,
   commerce: Commerce,
   hacker: Hacker,
+  utility: Utility,
   gadget: Gadget
 };
 
